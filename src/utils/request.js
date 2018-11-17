@@ -27,14 +27,13 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(
   response => {
   /**
-  * code为非20000是抛错 可结合自己业务进行修改
+  * 可结合业务进行修改
   */
     const res = response.data
-    if (res.errno !== 0 || res.success === false) {
-      // 5000Token 过期了;
+    if (res.error !== 0 || res.success === false) {
       return Promise.reject('error')
     } else {
-      return response.data
+      return res
     }
   },
   error => {

@@ -2,7 +2,7 @@ import router from './router'
 
 
 router.beforeEach((to, from, next) => {
-  console.log('-----路由导航前------', to, from)
+  console.log('-----路由导航------', to, from)
   next()
 })
 
