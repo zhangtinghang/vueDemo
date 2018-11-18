@@ -1,9 +1,9 @@
 import { loginByUsername, getUserInfo } from '@/api/login'
-import { getToken, setToken } from '@/utils/auth'
+import { getToken, setToken, getUser, setUser } from '@/utils/auth'
 
 const user = {
   state: {
-    user: '',
+    user: getUser(),
     status: '',
     code: '',
     token: getToken(),
@@ -54,6 +54,7 @@ const user = {
           commit('SET_TOKEN', token)
           commit('SET_USER', response.data)
           setToken(token)
+          setUser(response.data)
           resolve()
         }).catch(error => {
           reject(error)

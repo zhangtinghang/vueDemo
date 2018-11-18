@@ -58,19 +58,6 @@ export default {
         password: ''
       };
     },
-    getUserInfo(){
-     //请求'/user/userinfo'接口
-      this.axios.get('/user/userinfo')
-      .then(({data})=>{
-        //打印mock data
-        console.log(data);
-        if(data.error === 0){
-          this.userInfo = data.data;
-        }else{
-          this.userInfo = {};
-        }
-      });
-    },
     changeLangEvent(){
        if ( this.$i18n.locale === 'zh' ){
          this.$i18n.locale = 'en'

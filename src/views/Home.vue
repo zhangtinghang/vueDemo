@@ -11,9 +11,9 @@
         <MySelf></MySelf>
       </div>
       <mu-bottom-nav :value.sync="active">
-        <mu-bottom-nav-item title="Recents" icon="restore"></mu-bottom-nav-item>
-        <mu-bottom-nav-item title="Favorites" icon="favorite"></mu-bottom-nav-item>
-        <mu-bottom-nav-item title="Nearby" icon="location_on"></mu-bottom-nav-item>
+        <mu-bottom-nav-item :title="home" icon="restore"></mu-bottom-nav-item>
+        <mu-bottom-nav-item :title="list" icon="favorite"></mu-bottom-nav-item>
+        <mu-bottom-nav-item :title="my" icon="location_on"></mu-bottom-nav-item>
       </mu-bottom-nav>
     </mu-container>
   </div>
@@ -27,25 +27,46 @@ export default {
   name: 'home',
   data () {
     return {
-      active: 0
+      active: 0,
     }
   },
   components:{
     ImgList,
     LoadMore,
     MySelf
+  },
+  created(){
+    this.$i18n.locale = 'en-US'
+  },
+  computed:{
+    home:function(){
+      return this.$t('home');
+    },
+    list:function(){
+      return this.$t('list');
+    },
+    my:function(){
+      return this.$t('me');
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
-.container {
+.demo_container{
+  height:100%;
+  width: 100%;
+}
+.container{
+  height: 100%;
   padding: 0;
-  padding-bottom:56px;
+}
+.demo_nav_item{
+  padding-bottom: 56px;
 }
 .mu-bottom-nav{
   position: fixed;
   bottom: 0;
-  z-index: 10;
+  z-index: 999;
   width: 100%;
 }
 </style>

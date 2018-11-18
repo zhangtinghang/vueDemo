@@ -6,16 +6,16 @@ import zhLocale from './zh'
 Vue.use(VueI18n)
 
 const messages = {
-  en: {
+  'en-US': {
     ...enLocale,
   },
-  zh: {
+  'zh-CN': {
     ...zhLocale,
   }
 }
 
 const i18n = new VueI18n({
-  local: 'en',
+  local: 'zh-CN',
   messages // set locale messages
 })
 

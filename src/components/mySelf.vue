@@ -1,25 +1,43 @@
 <template>
     <mu-container>
         <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;">
-        <mu-card-header title="Myron Avatar" sub-title="sub title">
+        <mu-card-header :title="username" :sub-title="date">
             <mu-avatar slot="avatar">
-            <!-- <img src="../../assets/images/uicon.jpg"> -->
+                <img :src="avatar">
             </mu-avatar>
         </mu-card-header>
-        <mu-card-media title="Image Title" sub-title="Image Sub Title">
-            <!-- <img src="../../assets/images/sun.jpg"> -->
+        <mu-card-media :title="date" sub-title="Image Sub Title">
+            <img src="@/assets/images/sun.jpg">
         </mu-card-media>
         <mu-card-title title="Content Title" sub-title="Content Title"></mu-card-title>
-        <mu-card-text>
-            散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
-            调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
-            似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，
-            找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！
-        </mu-card-text>
+        <mu-card-text v-text="description"></mu-card-text>
         <mu-card-actions>
-            <mu-button flat>Action 1</mu-button>
-            <mu-button flat>Action 2</mu-button>
+            <mu-button flat @click="changeLanguage">修改语言</mu-button>
+            <mu-button flat>{{$t('buttom')}}</mu-button>
         </mu-card-actions>
         </mu-card>
     </mu-container>
 </template>
+
+<script>
+import store from '@/store'
+    let { avatar = '', username = '', date = '', description  = ''} = store.getters.user
+export default {
+    data(){
+        return {
+            avatar: avatar,
+            username: username,
+            date: date,
+            description: description,
+        }
+    },
+    methods: {
+        changeLanguage () {
+            console.log(this.$i18n.locale)
+       this.$i18n.locale = 'zh-CN'
+    }
+    }
+}
+</script>
+
+
