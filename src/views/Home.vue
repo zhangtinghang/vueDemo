@@ -35,9 +35,6 @@ export default {
     LoadMore,
     MySelf
   },
-  created(){
-    this.$i18n.locale = 'en-US'
-  },
   computed:{
     home:function(){
       return this.$t('home');

@@ -58,13 +58,6 @@ export default {
         password: ''
       };
     },
-    changeLangEvent(){
-       if ( this.$i18n.locale === 'zh' ){
-         this.$i18n.locale = 'en'
-       }else{
-          this.$i18n.locale = 'zh'
-       }
-    }
   }
 }
 </script>

@@ -33,9 +33,8 @@ export default {
     },
     methods: {
         changeLanguage () {
-            console.log(this.$i18n.locale)
-       this.$i18n.locale = 'zh-CN'
-    }
+            this.$i18n.locale === 'en-US' ? this.$i18n.locale = 'zh-CN': this.$i18n.locale = 'en-US'
+        }
     }
 }
 </script>
